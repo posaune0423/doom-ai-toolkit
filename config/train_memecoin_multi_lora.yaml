@@ -88,7 +88,7 @@ config:
         height: 1024
         guidance_scale: 1
         sample_steps: 4
-          prompts:
+        prompts:
             - "baroque oil painting, dramatic chiaroscuro, an aristocrat in a velvet cloak holding a small ornate brass medallion engraved with the doom_popcat logo, rich golden highlights, candlelit atmosphere, 17th-century european composition, deep shadows, textured brush strokes"
             - "baroque oil painting, a battle-worn knight resting in a cathedral hall, his steel shield embossed with the doom_bonk logo, soft candlelight reflecting on the metal, grand architecture, dramatic lighting, intricate textures, warm baroque palette"
             - "baroque oil painting, a noblewoman seated near a carved wooden table, a silk banner behind her decorated with the doom_wif logo, glowing candlelight, ornate interior, soft fabric folds, detailed classical brushwork, high-contrast chiaroscuro"
