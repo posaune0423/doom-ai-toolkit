@@ -6,11 +6,7 @@
   "python.terminal.activateEnvInCurrentTerminal": true,
 
   // 仮想環境の検索パス（venv または .venv を自動検出）
-  "python.venvPath": "${workspaceFolder}",
-  "python.venvFolders": [
-    "${workspaceFolder}/venv",
-    "${workspaceFolder}/.venv"
-  ],
+  "python.venvPath": "${workspaceFolder}/venv",
 
   // ターミナル設定
   "python.terminal.executeInFileDir": false,
