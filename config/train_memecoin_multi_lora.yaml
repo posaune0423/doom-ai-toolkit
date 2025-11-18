@@ -18,47 +18,47 @@ config:
         max_step_saves_to_keep: 4
 
       datasets:
-        - folder_path: "dataset/popcat"
-          caption_ext: "txt"
-          caption_dropout_rate: 0.05
-          cache_latents_to_disk: true
-          resolution: [512, 768, 1024]
+        # - folder_path: "dataset/popcat"
+        #   caption_ext: "txt"
+        #   caption_dropout_rate: 0.05
+        #   cache_latents_to_disk: true
+        #   resolution: 1024
 
-        - folder_path: "dataset/bonk"
-          caption_ext: "txt"
-          caption_dropout_rate: 0.05
-          cache_latents_to_disk: true
-          resolution: [512, 768, 1024]
+        # - folder_path: "dataset/bonk"
+        #   caption_ext: "txt"
+        #   caption_dropout_rate: 0.05
+        #   cache_latents_to_disk: true
+        #   resolution: 1024
 
-        - folder_path: "dataset/wif"
-          caption_ext: "txt"
-          caption_dropout_rate: 0.05
-          cache_latents_to_disk: true
-          resolution: [512, 768, 1024]
+        # - folder_path: "dataset/wif"
+        #   caption_ext: "txt"
+        #   caption_dropout_rate: 0.05
+        #   cache_latents_to_disk: true
+        #   resolution: 1024
 
-        - folder_path: "dataset/doge"
-          caption_ext: "txt"
-          caption_dropout_rate: 0.05
-          cache_latents_to_disk: true
-          resolution: [512, 768, 1024]
+        # - folder_path: "dataset/doge"
+        #   caption_ext: "txt"
+        #   caption_dropout_rate: 0.05
+        #   cache_latents_to_disk: true
+        #   resolution: 1024
 
         - folder_path: "dataset/fart"
           caption_ext: "txt"
           caption_dropout_rate: 0.05
           cache_latents_to_disk: true
-          resolution: [512, 768, 1024]
+          resolution: 1024
 
-        - folder_path: "dataset/pnut"
-          caption_ext: "txt"
-          caption_dropout_rate: 0.05
-          cache_latents_to_disk: true
-          resolution: [512, 768, 1024]
+        # - folder_path: "dataset/pnut"
+        #   caption_ext: "txt"
+        #   caption_dropout_rate: 0.05
+        #   cache_latents_to_disk: true
+        #   resolution: 1024
 
         - folder_path: "dataset/sol"
           caption_ext: "txt"
           caption_dropout_rate: 0.05
           cache_latents_to_disk: true
-          resolution: [512, 768, 1024]
+          resolution: 1024
 
       train:
         batch_size: 1
