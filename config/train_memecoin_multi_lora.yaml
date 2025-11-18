@@ -36,15 +36,43 @@ config:
           cache_latents_to_disk: true
           resolution: [512, 768, 1024]
 
+        - folder_path: "dataset/doge"
+          caption_ext: "txt"
+          caption_dropout_rate: 0.05
+          cache_latents_to_disk: true
+          resolution: [512, 768, 1024]
+
+        - folder_path: "dataset/fart"
+          caption_ext: "txt"
+          caption_dropout_rate: 0.05
+          cache_latents_to_disk: true
+          resolution: [512, 768, 1024]
+
+        - folder_path: "dataset/pnut"
+          caption_ext: "txt"
+          caption_dropout_rate: 0.05
+          cache_latents_to_disk: true
+          resolution: [512, 768, 1024]
+
+        - folder_path: "dataset/sol"
+          caption_ext: "txt"
+          caption_dropout_rate: 0.05
+          cache_latents_to_disk: true
+          resolution: [512, 768, 1024]
+
       train:
         batch_size: 1
         steps: 3000  # マルチコンセプトのため長めに
         gradient_accumulation_steps: 1
         train_unet: true
+        train_text_encoder: false
         gradient_checkpointing: true
         noise_scheduler: "flowmatch"
         optimizer: "adamw8bit"
         lr: 1e-4
+        ema_config:
+          use_ema: true
+          ema_decay: 0.99
         dtype: "bf16"
 
       model:
@@ -64,3 +92,14 @@ config:
           - "doom_popcat logo, flat design, white background"
           - "doom_bonk logo, flat design, white background"
           - "doom_wif logo, flat design, white background"
+          - "doom_doge logo, flat design, white background"
+          - "doom_fart logo, flat design, white background"
+          - "doom_pnut logo, flat design, white background"
+          - "doom_sol logo, flat design, white background"
+        neg: ""
+        seed: 42
+        walk_seed: true
+
+  meta:
+    name: "[name]"
+    version: "1.0"
