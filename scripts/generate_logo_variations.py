@@ -52,10 +52,10 @@ def generate_variations(dataset_name):
         "gray": f"doom_{dataset_name} logo, flat design, gray background.",
     }
 
-    # First, renumber existing files (0003-0008 -> 0057-0062) to avoid conflicts
+    # First, renumber existing files (0001-0008 -> 0055-0062) to avoid conflicts
     print("Renumbering existing files...")
     existing_files = []
-    for i in range(3, 9):  # 0003 to 0008
+    for i in range(1, 9):  # 0001 to 0008
         # Check for both .png and .jpg extensions
         img_extensions = [".png", ".jpg", ".jpeg"]
         found_ext = None
@@ -70,8 +70,12 @@ def generate_variations(dataset_name):
             existing_files.append((i, found_ext if found_ext else ".png"))
 
     # Renumber in reverse order to avoid conflicts
+    # 0001-0002 -> 0055-0056, 0003-0008 -> 0057-0062
     for old_num, img_ext in reversed(existing_files):
-        new_num = old_num + 54  # 0003 -> 0057, 0004 -> 0058, etc.
+        if old_num <= 2:
+            new_num = old_num + 54  # 0001 -> 0055, 0002 -> 0056
+        else:
+            new_num = old_num + 54  # 0003 -> 0057, 0004 -> 0058, etc.
 
         old_img = dataset_dir / f"{old_num:04d}{img_ext}"
         old_txt = dataset_dir / f"{old_num:04d}.txt"
@@ -88,7 +92,36 @@ def generate_variations(dataset_name):
 
     print("\nGenerating logo variations...")
 
-    # Generate all variations
+    # Generate 0001 and 0002 first (white and black, medium scale, no rotation)
+    print("Generating base logo variations (0001-0002)...")
+
+    # 0001: white, medium scale, no rotation
+    logo_path = logo_files["white"]
+    img = Image.open(logo_path).convert("RGBA")
+    final_img = Image.new("RGBA", (img.width + 100, img.height + 100), (0, 0, 0, 0))
+    final_x = (final_img.width - img.width) // 2
+    final_y = (final_img.height - img.height) // 2
+    final_img.paste(img, (final_x, final_y), img)
+    output_path = dataset_dir / "0001.png"
+    final_img.save(output_path, "PNG")
+    with open(dataset_dir / "0001.txt", "w", encoding="utf-8") as f:
+        f.write(captions["white"] + "\n")
+    print("Generated: 0001.png (color=white, scale=medium, rotation=0°)")
+
+    # 0002: black, medium scale, no rotation
+    logo_path = logo_files["black"]
+    img = Image.open(logo_path).convert("RGBA")
+    final_img = Image.new("RGBA", (img.width + 100, img.height + 100), (0, 0, 0, 0))
+    final_x = (final_img.width - img.width) // 2
+    final_y = (final_img.height - img.height) // 2
+    final_img.paste(img, (final_x, final_y), img)
+    output_path = dataset_dir / "0002.png"
+    final_img.save(output_path, "PNG")
+    with open(dataset_dir / "0002.txt", "w", encoding="utf-8") as f:
+        f.write(captions["black"] + "\n")
+    print("Generated: 0002.png (color=black, scale=medium, rotation=0°)")
+
+    # Generate all variations starting from 0003
     variation_num = 3  # Start from 0003
 
     for color in colors:
