@@ -4,7 +4,7 @@ config:
   name: "memecoin_multi_lora_v1"
   process:
     - type: sd_trainer
-      training_folder: "output"
+      training_folder: "/content/doom-ai-toolkit/output"
       device: "cuda:0"
 
       network:
