@@ -41,3 +41,4 @@ setuptools==69.5.1
 # Modified to avoid version conflicts
 huggingface_hub>=0.30.0,<1.0
 numpy==1.26.3
+pydantic-core==2.41.5
