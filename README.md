@@ -172,8 +172,8 @@ Requirements:
 
 Linux:
 ```bash
-git clone https://github.com/ostris/ai-toolkit.git
-cd ai-toolkit
+git clone https://github.com/posaune0423/doom-ai-toolkit.git
+cd doom-ai-toolkit
 python3 -m venv venv
 source venv/bin/activate
 # install torch first
@@ -186,8 +186,8 @@ Windows:
 If you are having issues with Windows. I recommend using the easy install script at [https://github.com/Tavris1/AI-Toolkit-Easy-Install](https://github.com/Tavris1/AI-Toolkit-Easy-Install)
 
 ```bash
-git clone https://github.com/ostris/ai-toolkit.git
-cd ai-toolkit
+git clone https://github.com/posaune0423/doom-ai-toolkit.git
+cd doom-ai-toolkit
 python -m venv venv
 .\venv\Scripts\activate
 pip install --no-cache-dir torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu126

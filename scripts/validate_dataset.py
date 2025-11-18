@@ -8,7 +8,7 @@ This script checks that:
 
 import os
 
-DATASET_ROOT = "content/dataset"
+DATASET_ROOT = os.environ.get("DATASET_ROOT", "dataset")
 datasets = ['popcat', 'bonk', 'wif']
 
 for dataset_name in datasets:
