@@ -8,6 +8,7 @@
     "charliermarsh.ruff",
 
     // uv support (if available)
-    "astral-sh.uv"
+    "astral-sh.uv",
+    "google.colab"
   ]
 }
