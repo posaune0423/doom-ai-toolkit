@@ -1,0 +1,36 @@
+{
+  // Python拡張機能の設定
+  // インタープリターは自動検出されるか、手動で選択してください
+  // "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+
+  // 仮想環境の検索パス（venv または .venv を自動検出）
+  "python.venvPath": "${workspaceFolder}",
+  "python.venvFolders": [
+    "${workspaceFolder}/venv",
+    "${workspaceFolder}/.venv"
+  ],
+
+  // ターミナル設定
+  "python.terminal.executeInFileDir": false,
+
+  // Pythonファイルのフォーマッター設定
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+
+  // Ruff拡張機能の設定
+  "ruff.enable": true,
+  "ruff.organizeImports": true,
+  "ruff.fixAll": true,
+
+  // Python拡張機能の自動検出を有効化
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic"
+}

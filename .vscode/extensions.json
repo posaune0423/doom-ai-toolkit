@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    // Core Python development
+    "ms-python.python",
+    "ms-python.pytest",
+
+    // Ruff for linting, formatting, and import sorting (replaces black, isort, flake8, mypy)
+    "charliermarsh.ruff",
+
+    // uv support (if available)
+    "astral-sh.uv"
+  ]
+}

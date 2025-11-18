@@ -1,0 +1,90 @@
+---
+description: Python development with venv, pip, and Ruff
+globs: *.py,requirements.txt
+alwaysApply: true
+---
+Rule Name: python-venv-pip-ruff
+Description: Python development environment using venv, pip, and Ruff
+
+## Package Management with pip
+
+- **Use `pip` for package management** with `requirements.txt`
+- **Install packages**: `pip install <package>` then update `requirements.txt` manually
+- **Install from requirements**: `pip install -r requirements.txt`
+- **Virtual environment**: Use `venv` (not `.venv`) - create with `python3 -m venv venv`
+- **Activate venv**: 
+  - Linux/Mac: `source venv/bin/activate`
+  - Windows: `.\venv\Scripts\activate`
+- **PyTorch installation**: Install PyTorch first with CUDA support:
+  ```bash
+  pip install --no-cache-dir torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu126
+  ```
+
+## Project Structure
+
+- **Use `requirements.txt`** for dependency management
+- **Python version**: Requires Python >3.10 (as specified in README)
+- **Virtual environment**: Located at `venv/` (not `.venv/`)
+- **Project type**: AI Toolkit for diffusion model training (PyTorch-based)
+
+## Code Quality with Ruff
+
+- **Ruff replaces**: black, flake8, isort, and many other tools
+- **Format code**: `ruff format` (when venv is activated) or `python -m ruff format`
+- **Lint code**: `ruff check` (when venv is activated) or `python -m ruff check`
+- **Fix automatically**: `ruff check --fix` (when venv is activated) or `python -m ruff check --fix`
+- **VSCode integration**: Ruff extension is configured in `.vscode/settings.json`
+
+### Ruff Configuration Best Practices
+
+- **Line length**: Default 88 (black-compatible), can be configured in `pyproject.toml` if needed
+- **Target version**: Python >3.10 (as per project requirements)
+- **VSCode integration**: Ruff is configured in `.vscode/settings.json` with format on save
+- **File exclusions**: Exclude `__pycache__`, `venv`, `.venv`, `output`, `dataset` directories
+
+## Development Workflow
+
+1. **Activate venv**: `source venv/bin/activate` (Linux/Mac) or `.\venv\Scripts\activate` (Windows)
+2. **Install dependencies**: `pip install -r requirements.txt`
+3. **Add new dependency**: 
+   - Install: `pip install <package>`
+   - Update requirements: `pip freeze > requirements.txt` (or manually add to requirements.txt)
+4. **Format code**: `ruff format` (or use VSCode format on save)
+5. **Lint code**: `ruff check --fix`
+6. **Run scripts**: `python run.py` or `python flux_train_ui.py`
+
+## Common Commands Reference
+
+```bash
+# Virtual environment
+python3 -m venv venv          # Create venv
+source venv/bin/activate      # Activate (Linux/Mac)
+.\venv\Scripts\activate       # Activate (Windows)
+deactivate                     # Deactivate
+
+# Package management
+pip install -r requirements.txt              # Install all dependencies
+pip install <package>                        # Install package
+pip freeze > requirements.txt                # Update requirements.txt
+
+# PyTorch installation (install first)
+pip install --no-cache-dir torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu126
+
+# Code quality (with venv activated)
+ruff format                   # Format code
+ruff check                    # Lint code
+ruff check --fix              # Lint and auto-fix
+
+# Running code
+python run.py                 # Run main script
+python flux_train_ui.py       # Run FLUX training UI
+```
+
+## Project-Specific Notes
+
+- **GPU Required**: This project requires NVIDIA GPU with CUDA support
+- **PyTorch Version**: Uses PyTorch 2.7.0 with CUDA 12.6
+- **Virtual Environment**: Uses `venv` (not `.venv`) as per README
+- **Dependencies**: Managed via `requirements.txt` (not pyproject.toml)
+- **Ruff**: Available via VSCode extension, format on save enabled
+- **Type hints**: Use type hints when possible, but not strictly enforced
