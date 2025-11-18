@@ -1,7 +1,7 @@
 ---
 job: extension
 config:
-  name: "memecoin_multi_lora_v1.1"
+  name: "memecoin_multi_lora"
   process:
     - type: sd_trainer
       training_folder: "/content/doom-ai-toolkit/output"
@@ -89,17 +89,29 @@ config:
         guidance_scale: 1
         sample_steps: 4
         prompts:
-            - "baroque oil painting, dramatic chiaroscuro, an aristocrat in a velvet cloak holding a small ornate brass medallion engraved with the doom_popcat logo, rich golden highlights, candlelit atmosphere, 17th-century european composition, deep shadows, textured brush strokes"
-            - "baroque oil painting, a battle-worn knight resting in a cathedral hall, his steel shield embossed with the doom_bonk logo, soft candlelight reflecting on the metal, grand architecture, dramatic lighting, intricate textures, warm baroque palette"
-            - "baroque oil painting, a noblewoman seated near a carved wooden table, a silk banner behind her decorated with the doom_wif logo, glowing candlelight, ornate interior, soft fabric folds, detailed classical brushwork, high-contrast chiaroscuro"
-            - "baroque oil painting, still-life composition of ancient coins, quills, maps, and relics on a wooden table, one illuminated coin bearing the doom_doge logo, warm golden reflections, moody shadows, 17th-century painterly realism, textured brush strokes"
-            - "baroque oil painting, cathedral interior filled with incense smoke drifting through colored light, a marble altar plate engraved with the doom_fart logo at the center, dramatic atmospheric lighting, rich baroque detailing, deep shadow gradients"
-            - "baroque oil painting, grand feasting hall with lavish wooden furniture, a carved crest above the fireplace featuring the doom_pnut logo, warm candlelight, ornate details, fine baroque textures, soft glazing technique, dramatic contrast"
-            - "baroque oil painting, a sacred relic displayed on a velvet cloth, glowing softly with the doom_sol logo at its center, golden reflections, ethereal divine atmosphere, detailed baroque ornamentation, chiaroscuro lighting, richly textured oils"
+          - "baroque oil painting, dramatic chiaroscuro, an aristocrat in a velvet cloak holding a small ornate brass medallion engraved with the doom_popcat logo, rich golden highlights, candlelit atmosphere, 17th-century european composition, deep shadows, textured brush strokes"
+          - "baroque oil painting, a battle-worn knight resting in a cathedral hall, his steel shield embossed with the doom_bonk logo, soft candlelight reflecting on the metal, grand architecture, dramatic lighting, intricate textures, warm baroque palette"
+          - "baroque oil painting, a noblewoman seated near a carved wooden table, a silk banner behind her decorated with the doom_wif logo, glowing candlelight, ornate interior, soft fabric folds, detailed classical brushwork, high-contrast chiaroscuro"
+          - "baroque oil painting, still-life composition of ancient coins, quills, maps, and relics on a wooden table, one illuminated coin bearing the doom_doge logo, warm golden reflections, moody shadows, 17th-century painterly realism, textured brush strokes"
+          - "baroque oil painting, cathedral interior filled with incense smoke drifting through colored light, a marble altar plate engraved with the doom_fart logo at the center, dramatic atmospheric lighting, rich baroque detailing, deep shadow gradients"
+          - "baroque oil painting, grand feasting hall with lavish wooden furniture, a carved crest above the fireplace featuring the doom_pnut logo, warm candlelight, ornate details, fine baroque textures, soft glazing technique, dramatic contrast"
+          - "baroque oil painting, a sacred relic displayed on a velvet cloth, glowing softly with the doom_sol logo at its center, golden reflections, ethereal divine atmosphere, detailed baroque ornamentation, chiaroscuro lighting, richly textured oils"
         neg: ""
         seed: 42
         walk_seed: true
 
-  meta:
-    name: "[name]"
-    version: "1.1"
+meta:
+  name: "[name]"
+  description: A multi-concept LoRA for memecoin
+  trigger_words:
+    - doom_popcat
+    - doom_bonk
+    - doom_wif
+    - doom_doge
+    - doom_fart
+    - doom_pnut
+    - doom_sol
+  version: "1.1"
+  creator:
+    name: posaune0423
+    website: https://github.com/posaune0423
