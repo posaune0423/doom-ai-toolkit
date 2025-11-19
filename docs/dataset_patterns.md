@@ -8,9 +8,11 @@ This document describes a reusable pattern generation system for creating crypto
 
 Before using this pattern generation system, you need to prepare the following logo files:
 
-- **White background logo**: 1024x1024 pixels PNG file (e.g., `logo-white.png`)
-- **Black background logo**: 1024x1024 pixels PNG file (e.g., `logo-black.png`)
-- **Gray background logo**: 1024x1024 pixels PNG file (e.g., `logo-gray.png`)
+- **White background logo**: 1024x1024 pixels PNG file (e.g., `_controls/logo-white.png`)
+- **Black background logo**: 1024x1024 pixels PNG file (e.g., `_controls/logo-black.png`)
+- **Gray background logo**: 1024x1024 pixels PNG file (e.g., `_controls/logo-gray.png`)
+
+**Note**: Logo files should be placed in the `_controls` folder to prevent them from being included in the training dataset.
 
 All logo files should be:
 
@@ -84,13 +86,22 @@ The dataset follows a systematic order: **Color → Size → Rotation**. For eac
 
 ## Caption Format
 
-The caption format is customizable. For SOL logo example:
+The caption format uses descriptive text with the trigger word embedded. For SOL logo example:
 
 ```
-<$SOL>, logo, [size] size, [color] background[, rotated [angle] degrees].
+A [size] cgl_sol logo made of three stacked slanted rectangles forming an S-shaped mark, with a colorful gradient, on a [color] background[, rotated [angle] degrees].
 ```
 
-For other crypto logos, replace `<$SOL>` with the appropriate tag (e.g., `<$BTC>`, `<$ETH>`, etc.).
+Where:
+- `[size]` is replaced with: `large`, `medium`, or `small`
+- `[color]` is replaced with: `white`, `black`, or `gray`
+- `[, rotated [angle] degrees]` is added only when rotation is not 0°
+
+Example captions:
+- `A large cgl_sol logo made of three stacked slanted rectangles forming an S-shaped mark, with a colorful gradient, on a white background.`
+- `A medium cgl_sol logo made of three stacked slanted rectangles forming an S-shaped mark, with a colorful gradient, on a black background, rotated 15 degrees.`
+
+For other crypto logos, replace `cgl_sol` with the appropriate trigger word (e.g., `cgl_btc`, `cgl_eth`, etc.).
 
 ## Generation Function
 
@@ -102,7 +113,7 @@ from typing import List, Tuple, Optional
 
 def generate_dataset_patterns(
     logo_files: dict,
-    tag: str = '<$SOL>',
+    tag: str = 'cgl_sol',
     target_size: Tuple[int, int] = (1024, 1024),
     sizes: dict = None,
     rotations: List[int] = None,
@@ -118,7 +129,7 @@ def generate_dataset_patterns(
     Args:
         logo_files: Dict mapping color names to logo file paths
             e.g., {'white': 'logo-white.png', 'black': 'logo-black.png', 'gray': 'logo-gray.png'}
-        tag: Caption tag for the logo (e.g., '<$SOL>', '<$BTC>', '<$ETH>')
+        tag: Trigger word for the logo (e.g., 'cgl_sol', 'cgl_btc', 'cgl_eth')
         target_size: Output image size (width, height)
         sizes: Dict mapping size names to scale factors
             e.g., {'l': 1.0, 'm': 0.7, 's': 0.3}
@@ -134,7 +145,7 @@ def generate_dataset_patterns(
                 'color': 'white',
                 'size': 'large',
                 'rotation': 0,
-                'caption': '<$SOL>, logo, large size, white background.'
+                'caption': 'A large cgl_sol logo made of three stacked slanted rectangles forming an S-shaped mark, with a colorful gradient, on a white background.'
             },
             ...
         ]
@@ -161,8 +172,8 @@ def generate_dataset_patterns(
         for size in size_order:
             for rotation in rotations:
                 size_desc = size_labels[size]
-                rot_desc = "" if rotation == 0 else f", rotated {rotation} degrees"
-                caption = f"{tag}, logo, {size_desc} size, {color} background{rot_desc}."
+                rot_text = f", rotated {abs(rotation)} degrees" if rotation != 0 else ""
+                caption = f"A {size_desc} {tag} logo made of three stacked slanted rectangles forming an S-shaped mark, with a colorful gradient, on a {color} background{rot_text}."
 
                 patterns.append({
                     'number': counter,
@@ -219,7 +230,7 @@ def create_logo_image(
 
 def generate_dataset_images(
     logo_files: dict,
-    tag: str = '<$SOL>',
+    tag: str = 'cgl_sol',
     output_dir: str = 'dataset/sol',
     target_size: Tuple[int, int] = (1024, 1024),
     sizes: dict = None,
@@ -232,7 +243,7 @@ def generate_dataset_images(
 
     Args:
         logo_files: Dict mapping color names to logo file paths
-        tag: Caption tag for the logo (e.g., '<$SOL>', '<$BTC>', '<$ETH>')
+        tag: Trigger word for the logo (e.g., 'cgl_sol', 'cgl_btc', 'cgl_eth')
         output_dir: Output directory for images and captions
         target_size: Output image size
         sizes: Dict mapping size names to scale factors
@@ -290,31 +301,31 @@ def generate_dataset_images(
 # Example 1: SOL logo
 if __name__ == '__main__':
     sol_logo_files = {
-        'white': 'dataset/sol/logo-white.png',
-        'black': 'dataset/sol/logo-black.png',
-        'gray': 'dataset/sol/logo-gray.png'
+        'white': 'dataset/sol/_controls/logo-white.png',
+        'black': 'dataset/sol/_controls/logo-black.png',
+        'gray': 'dataset/sol/_controls/logo-gray.png'
     }
 
     # Generate SOL patterns (metadata only)
-    sol_patterns = generate_dataset_patterns(sol_logo_files, tag='<$SOL>')
+    sol_patterns = generate_dataset_patterns(sol_logo_files, tag='cgl_sol')
     for p in sol_patterns[:5]:  # Show first 5
         print(f"{p['number']:04d}: {p['caption']}")
 
     # Generate all SOL images and captions
-    # generate_dataset_images(sol_logo_files, tag='<$SOL>', output_dir='dataset/sol')
+    # generate_dataset_images(sol_logo_files, tag='cgl_sol', output_dir='dataset/sol')
 
 # Example 2: Bitcoin logo
 # btc_logo_files = {
-#     'white': 'dataset/btc/logo-white.png',
-#     'black': 'dataset/btc/logo-black.png',
-#     'gray': 'dataset/btc/logo-gray.png'
+#     'white': 'dataset/btc/_controls/logo-white.png',
+#     'black': 'dataset/btc/_controls/logo-black.png',
+#     'gray': 'dataset/btc/_controls/logo-gray.png'
 # }
-# generate_dataset_images(btc_logo_files, tag='<$BTC>', output_dir='dataset/btc')
+# generate_dataset_images(btc_logo_files, tag='cgl_btc', output_dir='dataset/btc')
 
 # Example 3: Custom configuration
 # custom_patterns = generate_dataset_patterns(
 #     logo_files={'white': 'logo.png'},
-#     tag='<$CUSTOM>',
+#     tag='cgl_custom',
 #     color_order=['white'],  # Only white background
 #     size_order=['l', 'm'],  # Only large and medium
 #     rotations=[0, 15, 30, -15]  # Custom rotation angles

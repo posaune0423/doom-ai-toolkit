@@ -9,11 +9,9 @@ config:
 
       network:
         type: "lora"
-        # linear: 32
-        # linear_alpha: 32
-        # [EN] Stronger LoRA capacity for overfitting cgl_sol (debug-style setting)
-        linear: 64
-        linear_alpha: 64
+        # [EN] More conservative LoRA rank for a single logo concept
+        linear: 32
+        linear_alpha: 32
 
       save:
         dtype: "float16"
@@ -33,16 +31,16 @@ config:
 
       train:
         batch_size: 1
-        # [EN] Higher step count to strongly imprint the cgl_sol logo
-        steps: 2000
+        # [EN] 800–1200 is a good range for a single logo; start around 1000 and pick the best checkpoint
+        steps: 800
         gradient_accumulation_steps: 1
         train_unet: true
-        # [EN] Keep text encoder frozen so cgl_sol semantics stay close to prior
-        train_text_encoder: false
+        # [EN] Also train the text encoder so `cgl_sol` can directly encode the logo concept
+        train_text_encoder: true
         gradient_checkpointing: true
         noise_scheduler: "flowmatch"
         optimizer: "adamw8bit"
-        # lr: 1e-4
+        # [EN] Slightly conservative learning rate for logo LoRA
         lr: 4e-4
         ema_config:
           use_ema: true
@@ -57,15 +55,16 @@ config:
 
       sample:
         sampler: "flowmatch"
-        sample_every: 250
+        sample_every: 100
         width: 1024
         height: 1024
-        guidance_scale: 1
+        # [EN] Use higher guidance to clearly see LoRA effect when sampling
+        guidance_scale: 5
         sample_steps: 4
         prompts:
-          - "baroque oil painting, dramatic chiaroscuro, an aristocrat in a velvet cloak holding a small ornate brass medallion engraved with the cgl_sol logo, rich golden highlights, candlelit atmosphere, 17th-century european composition, deep shadows, textured brush strokes"
-          - "A baroque oil painting of the cgl_sol logo glowing softly on a white background, dramatic lighting, detailed brushwork, painterly texture"
-          - "A modern minimalist cgl_sol logo on a black background, sleek geometric mark, minimalistic design, high contrast, bold and modern"
+          - "cgl_sol, three stacked slanted rectangles, S-shaped symbol, colorful gradient, white background, crypto logo icon"
+          - "cgl_sol, solana style symbol, three diagonal bars, colorful gradient, black background, crypto logo icon"
+          - "cgl_sol, three stacked slanted rectangles, S-shaped symbol, colorful gradient, gray background, minimal flat logo"
         # [EN] Encourage the model NOT to draw text when testing the logo
         neg: "text, letters, words, typography, watermark"
         seed: 42
