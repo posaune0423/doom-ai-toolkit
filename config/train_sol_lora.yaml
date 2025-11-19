@@ -1,0 +1,70 @@
+---
+job: extension
+config:
+  name: "sol_logo_lora"
+  process:
+    - type: sd_trainer
+      training_folder: "/content/doom-ai-toolkit/output"
+      device: "cuda:0"
+
+      network:
+        type: "lora"
+        linear: 32
+        linear_alpha: 32
+
+      save:
+        dtype: "float16"
+        save_every: 250
+        max_step_saves_to_keep: 4
+
+      datasets:
+        - folder_path: "/content/doom-ai-toolkit/dataset/sol"
+          caption_ext: "txt"
+          caption_dropout_rate: 0.0
+          cache_latents_to_disk: true
+          resolution: 1024
+
+      train:
+        batch_size: 1
+        steps: 1500
+        gradient_accumulation_steps: 1
+        train_unet: true
+        train_text_encoder: false
+        gradient_checkpointing: true
+        noise_scheduler: "flowmatch"
+        optimizer: "adamw8bit"
+        lr: 1e-4
+        ema_config:
+          use_ema: true
+          ema_decay: 0.99
+        dtype: "bf16"
+
+      model:
+        name_or_path: "black-forest-labs/FLUX.1-schnell"
+        assistant_lora_path: "ostris/FLUX.1-schnell-training-adapter"
+        is_flux: true
+        quantize: true
+
+      sample:
+        sampler: "flowmatch"
+        sample_every: 250
+        width: 1024
+        height: 1024
+        guidance_scale: 1
+        sample_steps: 4
+        prompts:
+          - "baroque oil painting, dramatic chiaroscuro, an aristocrat in a velvet cloak holding a small ornate brass medallion engraved with the cgl_sol logo, rich golden highlights, candlelit atmosphere, 17th-century european composition, deep shadows, textured brush strokes"
+          - "A large cgl_sol logo made of three stacked slanted rectangles, forming an S-shaped mark, on a white background, baroque oil painting, dramatic lighting, detailed brushwork"
+        neg: ""
+        seed: 42
+        walk_seed: true
+
+meta:
+  name: "[name]"
+  description: A single-concept LoRA for the cgl_sol logo
+  trigger_words:
+    - cgl_sol
+  version: "1.0"
+  creator:
+    name: posaune0423
+    website: https://github.com/posaune0423
