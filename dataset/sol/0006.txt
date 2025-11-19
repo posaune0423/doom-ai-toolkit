@@ -1,1 +1,1 @@
-<$SOL>, logo, medium size, white background.
+cgl_sol, logo, medium size, white background.

@@ -1,1 +1,1 @@
-<$WIF>, logo, small size, gray background, rotated 30 degrees.
+cgl_wif, logo, small size, gray background, rotated 30 degrees.

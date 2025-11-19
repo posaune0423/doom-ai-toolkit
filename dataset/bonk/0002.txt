@@ -1,1 +1,1 @@
-<$BONK>, logo, large size, white background, rotated 15 degrees.
+cgl_bonk, logo, large size, white background, rotated 15 degrees.

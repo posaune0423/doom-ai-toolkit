@@ -1,1 +1,1 @@
-<$POPCAT>, logo, small size, gray background, rotated 15 degrees.
+cgl_popcat, logo, small size, gray background, rotated 15 degrees.

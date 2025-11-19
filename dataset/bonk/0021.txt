@@ -1,1 +1,1 @@
-<$BONK>, logo, medium size, black background.
+cgl_bonk, logo, medium size, black background.

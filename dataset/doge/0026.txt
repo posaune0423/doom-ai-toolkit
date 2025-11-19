@@ -1,1 +1,1 @@
-<$DOGE>, logo, small size, black background.
+cgl_doge, logo, small size, black background.

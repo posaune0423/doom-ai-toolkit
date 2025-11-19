@@ -1,1 +1,1 @@
-<$PNUT>, logo, large size, black background.
+cgl_pnut, logo, large size, black background.

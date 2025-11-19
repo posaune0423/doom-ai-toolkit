@@ -1,1 +1,1 @@
-<$WIF>, logo, small size, gray background.
+cgl_wif, logo, small size, gray background.

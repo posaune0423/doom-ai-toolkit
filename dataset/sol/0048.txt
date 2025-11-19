@@ -1,1 +1,1 @@
-<$SOL> royal crest shield, ornate gold frame, heraldic design.
+cgl_sol royal crest shield, ornate gold frame, heraldic design.

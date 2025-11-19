@@ -1,1 +1,1 @@
-<$SOL>, logo, medium size, black background, rotated -30 degrees.
+cgl_sol, logo, medium size, black background, rotated -30 degrees.

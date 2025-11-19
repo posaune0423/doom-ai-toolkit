@@ -1,1 +1,1 @@
-<$FART>, logo, small size, white background, rotated -15 degrees.
+cgl_fartcoin, logo, small size, white background, rotated -15 degrees.

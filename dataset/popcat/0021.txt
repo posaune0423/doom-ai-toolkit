@@ -1,1 +1,1 @@
-<$POPCAT>, logo, medium size, black background.
+cgl_popcat, logo, medium size, black background.

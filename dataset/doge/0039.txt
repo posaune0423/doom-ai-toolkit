@@ -1,1 +1,1 @@
-<$DOGE>, logo, medium size, gray background, rotated 30 degrees.
+cgl_doge, logo, medium size, gray background, rotated 30 degrees.

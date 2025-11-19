@@ -1,1 +1,1 @@
-<$PNUT>, logo, small size, black background, rotated -15 degrees.
+cgl_pnut, logo, small size, black background, rotated -15 degrees.
