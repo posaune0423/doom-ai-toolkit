@@ -1,1 +1,1 @@
-cgl_sol, logo, medium size, gray background, rotated -30 degrees.
+A medium cgl_sol logo made of three stacked slanted rectangles forming an S-shaped mark, with a colorful gradient, on a white background, rotated -30 degrees.

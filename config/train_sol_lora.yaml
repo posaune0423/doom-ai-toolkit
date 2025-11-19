@@ -23,6 +23,7 @@ config:
           caption_dropout_rate: 0.0
           cache_latents_to_disk: true
           resolution: 1024
+          trigger_word: "cgl_sol"
 
       train:
         batch_size: 1
@@ -61,8 +62,8 @@ config:
 
 meta:
   name: "[name]"
-  description: A single-concept LoRA for the cgl_sol logo
-  trigger_words:
+  description: A single-concept LoRA for the Solana logo
+  trigger_words: # This is used for publishing to the platform not for training
     - cgl_sol
   version: "1.0"
   creator:

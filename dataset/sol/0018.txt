@@ -1,1 +1,1 @@
-cgl_sol, logo, large size, black background, rotated -15 degrees.
+A large cgl_sol logo made of three stacked slanted rectangles forming an S-shaped mark, with a colorful gradient, on a black background, rotated -15 degrees.
