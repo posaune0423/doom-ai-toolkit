@@ -27,7 +27,7 @@ config:
           # [EN] When enabled: replaces [trigger] or [name] in captions with trigger_word.
           # If trigger_word does not occur, it's automatically added to the beginning.
           # trigger_word is also used as a dataset-level tag when loading captions.
-          # trigger_word: "cgl_sol"
+          trigger_word: "zqlsym"
 
       train:
         batch_size: 1
@@ -62,11 +62,11 @@ config:
         guidance_scale: 5
         sample_steps: 4
         prompts:
-          - "cgl_sol, three stacked slanted rectangles, S-shaped symbol, colorful gradient, white background, crypto logo icon"
-          - "cgl_sol, solana style symbol, three diagonal bars, colorful gradient, black background, crypto logo icon"
-          - "cgl_sol, three stacked slanted rectangles, S-shaped symbol, colorful gradient, gray background, minimal flat logo"
-        # [EN] Encourage the model NOT to draw text when testing the logo
-        neg: "text, letters, words, typography, watermark"
+          - "zqlsym, three stacked slanted rectangles forming an S-shaped abstract symbol, colorful gradient, white background, clean unmarked surface, minimal flat icon"
+          - "zqlsym, three stacked slanted rectangles forming an S-shaped abstract symbol, colorful gradient, black background, clean unmarked surface, minimal flat icon"
+          - "zqlsym, three stacked slanted rectangles forming an S-shaped abstract symbol, colorful gradient, gray background, clean unmarked surface, minimal flat icon"
+        # [EN] Flux does not natively use negative prompts; keep this empty and rely on caption/prompt design instead
+        neg: ""
         seed: 42
         walk_seed: true
 
