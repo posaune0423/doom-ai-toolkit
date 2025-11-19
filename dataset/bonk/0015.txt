@@ -1,1 +1,1 @@
-<$BONK> logo, flat design, white background.
+<$BONK>, logo, small size, white background, rotated -30 degrees.

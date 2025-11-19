@@ -1,1 +1,1 @@
-<$SOL> logo, flat design, gray background.
+<$SOL>, logo, small size, gray background, rotated -30 degrees.

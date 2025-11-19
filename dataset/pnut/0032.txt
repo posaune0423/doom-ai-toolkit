@@ -1,1 +1,1 @@
-<$Pnut> logo, flat design, black background.
+<$PNUT>, logo, large size, gray background, rotated 15 degrees.

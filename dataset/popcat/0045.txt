@@ -1,1 +1,1 @@
-<$POPCAT> logo, flat design, gray background.
+<$POPCAT>, logo, small size, gray background, rotated -30 degrees.
