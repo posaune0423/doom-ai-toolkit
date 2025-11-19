@@ -1,7 +1,7 @@
 ---
 job: extension
 config:
-  name: "memecoin_multi_lora"
+  name: "memecoin_pack_lora"
   process:
     - type: sd_trainer
       training_folder: "/content/doom-ai-toolkit/output"
@@ -109,7 +109,7 @@ config:
 
 meta:
   name: "[name]"
-  description: A multi-concept LoRA for memecoin
+  description: A multi-concept LoRA for memecoin logo
   trigger_words:
     - cgl_popcat
     - cgl_bonk
