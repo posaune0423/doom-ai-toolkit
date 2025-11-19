@@ -23,7 +23,10 @@ config:
           caption_dropout_rate: 0.0
           cache_latents_to_disk: true
           resolution: 1024
-          trigger_word: "cgl_sol"
+          # [EN] When enabled: replaces [trigger] or [name] in captions with trigger_word.
+          # If trigger_word does not occur, it's automatically added to the beginning.
+          # trigger_word is also used as a dataset-level tag when loading captions.
+          # trigger_word: "cgl_sol"
 
       train:
         batch_size: 1
