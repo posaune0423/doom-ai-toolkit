@@ -9,8 +9,11 @@ config:
 
       network:
         type: "lora"
-        linear: 32
-        linear_alpha: 32
+        # linear: 32
+        # linear_alpha: 32
+        # [EN] Stronger LoRA capacity for overfitting cgl_sol (debug-style setting)
+        linear: 64
+        linear_alpha: 64
 
       save:
         dtype: "float16"
@@ -30,9 +33,11 @@ config:
 
       train:
         batch_size: 1
-        steps: 1500
+        # [EN] Higher step count to strongly imprint the cgl_sol logo
+        steps: 2000
         gradient_accumulation_steps: 1
         train_unet: true
+        # [EN] Keep text encoder frozen so cgl_sol semantics stay close to prior
         train_text_encoder: false
         gradient_checkpointing: true
         noise_scheduler: "flowmatch"
@@ -60,7 +65,8 @@ config:
           - "baroque oil painting, dramatic chiaroscuro, an aristocrat in a velvet cloak holding a small ornate brass medallion engraved with the cgl_sol logo, rich golden highlights, candlelit atmosphere, 17th-century european composition, deep shadows, textured brush strokes"
           - "A baroque oil painting of the cgl_sol logo glowing softly on a white background, dramatic lighting, detailed brushwork, painterly texture"
           - "A modern minimalist cgl_sol logo on a black background, sleek geometric mark, minimalistic design, high contrast, bold and modern"
-        neg: ""
+        # [EN] Encourage the model NOT to draw text when testing the logo
+        neg: "text, letters, words, typography, watermark"
         seed: 42
         walk_seed: true
 
