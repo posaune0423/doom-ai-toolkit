@@ -48,8 +48,9 @@ config:
         dtype: "bf16"
 
       model:
-        name_or_path: "black-forest-labs/FLUX.1-schnell"
-        assistant_lora_path: "ostris/FLUX.1-schnell-training-adapter"
+        name_or_path: "black-forest-labs/FLUX.1-dev"
+        # name_or_path: "black-forest-labs/FLUX.1-schnell"
+        # assistant_lora_path: "ostris/FLUX.1-schnell-training-adapter"
         is_flux: true
         quantize: true
 
@@ -74,7 +75,7 @@ meta:
   name: "[name]"
   description: A single-concept LoRA for the Solana logo
   trigger_words: # This is used for publishing to the platform not for training
-    - cgl_sol
+    - zqlsym
   version: "1.0"
   creator:
     name: posaune0423
