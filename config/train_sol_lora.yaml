@@ -52,7 +52,7 @@ config:
         # name_or_path: "black-forest-labs/FLUX.1-schnell"
         # assistant_lora_path: "ostris/FLUX.1-schnell-training-adapter"
         is_flux: true
-        quantize: true
+        quantize: false
 
       sample:
         sampler: "flowmatch"
@@ -60,12 +60,13 @@ config:
         width: 1024
         height: 1024
         # [EN] Use higher guidance to clearly see LoRA effect when sampling
-        guidance_scale: 5
-        sample_steps: 4
+        guidance_scale: 4
+        # sample_steps: 4
+        sample_steps: 20
         prompts:
-          - "zqlsym, three stacked slanted rectangles forming an S-shaped abstract symbol, colorful gradient, white background, clean unmarked surface, minimal flat icon"
-          - "zqlsym, three stacked slanted rectangles forming an S-shaped abstract symbol, colorful gradient, black background, clean unmarked surface, minimal flat icon"
-          - "zqlsym, three stacked slanted rectangles forming an S-shaped abstract symbol, colorful gradient, gray background, clean unmarked surface, minimal flat icon"
+          - "zqlsym, three diagonal bars stacked in a stepped zigzag pattern, colorful gradient, white background, minimal flat icon"
+          - "zqlsym, three diagonal bars stacked in a stepped zigzag pattern, colorful gradient, black background, minimal flat icon"
+          - "zqlsym, three diagonal bars stacked in a stepped zigzag pattern, colorful gradient, gray background, minimal flat icon"
         # [EN] Flux does not natively use negative prompts; keep this empty and rely on caption/prompt design instead
         neg: ""
         seed: 42
